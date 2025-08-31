@@ -105,3 +105,6 @@ func _on_animated_sprite_2d_animation_looped() -> void:
 		animated_sprite.animation = "idle_right"
 	else:
 		pass
+		
+		
+		#u r donkey
