@@ -7,7 +7,11 @@ extends CharacterBody2D #In extends CharacterBody2D I'm basically saying that th
 
 
 enum Direction {DOWN, UP, LEFT, RIGHT} #Short for enumeration, this line creates a custom 'type' called Direction with named values. Direction.DOWN == 0 | Direction.UP == 1 | Direction.LEFT == 2 | Direction.RIGHT == 3 |
+<<<<<<< HEAD
 enum State {IDLE, WALK, ATTACK}
+=======
+enum State {IDLE, WALK, ATTACK, HURT}
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
 
 
 var current_direction = Direction.DOWN
@@ -15,15 +19,31 @@ var current_state = State.IDLE
 var is_attacking := false
 var enemy_inattack_range = false 
 var enemy_attack_cooldown = true
+<<<<<<< HEAD
 var health = 100
 var player_alive = true 
+=======
+var health = 5
+var player_alive = true 
+var enemy = null
+var is_hurt = false
+var hurt_cooldown = false
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
 
 
 
 func _physics_process(delta): #MOVEMENT | physics_process runs every frame.
 	enemy_attack()
 	if is_attacking:
+<<<<<<< HEAD
 		return  # Skip movement and state changes during attack
+=======
+		return
+		
+	if is_hurt:
+		return
+		 # Skip movement and state changes during attack and hurt 
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
 	
 	if health <= 0 :
 		player_alive = false #add Death screen
@@ -74,13 +94,25 @@ func _play_animation():
 				Direction.UP: animation_player.play("Attack_up")
 				Direction.RIGHT: animation_player.play("Attack_right")
 				Direction.LEFT: animation_player.play("Attack_left")
+<<<<<<< HEAD
 
+=======
+		State.HURT:
+			animated_sprite.stop()
+			match current_direction:
+				Direction.DOWN: animation_player.play("Hurt_down")
+				Direction.UP: animation_player.play("Hurt_up")
+				Direction.RIGHT: animation_player.play("Hurt_right")
+				Direction.LEFT: animation_player.play("Hurt_left")
+			
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name.begins_with("Attack"):
 		is_attacking = false
 		current_state = State.IDLE
 		_play_animation()
+<<<<<<< HEAD
 
 
 func _on_player_hitbox_body_entered(body: Node2D) -> void:
@@ -96,6 +128,18 @@ func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true :
 		enemy_attack_cooldown = false
 		health -= 10
+=======
+	elif anim_name.begins_with("Hurt"):
+		is_hurt = false
+		current_state = State.IDLE
+		_play_animation()
+
+
+func enemy_attack():
+	if enemy_inattack_range and enemy_attack_cooldown == true :
+		enemy_attack_cooldown = false
+		health -= 1
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
 		print(health)
 		$AttackCooldown.start()
 		
@@ -103,3 +147,22 @@ func enemy_attack():
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
+<<<<<<< HEAD
+=======
+
+func _on_player_hurt_box_area_entered(hitbox: Area2D) -> void:
+	current_state = State.HURT
+	is_hurt = true
+	health -= 1
+	print(health)
+	_play_animation()
+
+
+func _on_sword_hit_box_area_entered(area: Area2D) -> void:
+	print("Sword hit something : ", area.name)
+	var enemy = area.get_parent()
+	 # Check if it's actually an enemy and has the apply_knockback method
+	if enemy.is_in_group("enemy") and enemy.has_method("apply_knockback"):
+		var knockback_direction = (area.global_position - global_position).normalized()
+		enemy.apply_knockback(knockback_direction, 150.0, 0.12)
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088

@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 Hey!
 
 
+=======
+Hey!
+
+
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
 Here you can find all the player animations without a shadow, in case you want to add it separate from the character. ( You can find the shadow at the "Assets" folder" )

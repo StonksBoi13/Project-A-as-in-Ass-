@@ -22,6 +22,14 @@ window/size/viewport_height=450
 window/stretch/mode="canvas_items"
 window/stretch/scale=3.0
 
+<<<<<<< HEAD
+=======
+[global_group]
+
+Hurtbox=""
+enemy=""
+
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
 [input]
 
 move_right={
@@ -54,6 +62,17 @@ attack={
 ]
 }
 
+<<<<<<< HEAD
+=======
+[layer_names]
+
+2d_physics/layer_1="Enviroment"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Sword/Weapon"
+2d_physics/layer_5="Bonus"
+
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

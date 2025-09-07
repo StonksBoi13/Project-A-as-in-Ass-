@@ -1,4 +1,8 @@
 # health_component.gd
+<<<<<<< HEAD
+=======
+class_name Health
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
 extends Node
 
 signal died  # Emit this when health reaches zero

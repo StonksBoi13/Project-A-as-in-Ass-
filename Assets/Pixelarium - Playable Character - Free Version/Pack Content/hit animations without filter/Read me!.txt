@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Hey! 
 
 Here you can find the hit animations without the red hit filter, in case you want to add it yourself to the character with coding, shading etc.
+=======
+Hey! 
+
+Here you can find the hit animations without the red hit filter, in case you want to add it yourself to the character with coding, shading etc.
+>>>>>>> e1e473d5ac04893df454a6ce5aeb597f2778e088
